@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>🚋横須賀線🚋</title>
+
+  <style>
+    body {
+        html,body{height:100%;}
+        body{padding:0;margin:0;}
+        h1{padding:0;margin:0;font-size:50%;}
+        div{float:left;}
+    }
+  </style>
+</head>
+
+  <!-- MapArea -->
+  <div id="view"></div>
+  <div id="myMap" style="width:50%;height:50%;"></div>
+  <!-- /MapArea -->
+
+  <!-- jQuery&GoogleMapsAPI -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=' async defer></script>
+  <script src="js/BmapQuery.js"></script>
+  <script>
+    //****************************************
+    //成功関数
+    //****************************************
+    function GetMap(){
+        //------------------------------------------------------------------------
+        //1. Instance
+        //------------------------------------------------------------------------
+        const map = new Bmap("#myMap");
+
+        //------------------------------------------------------------------------
+        //2. Display Map
+        //------------------------------------------------------------------------
+        map.startMap(35.4437, 139.648598, "aerial", 11); //The place is Bellevue.
+
+        //----------------------------------------------------
+        //3. Infobox
+        //   options = new Array();
+        //   options[index] = { lat, lon, width, height, title, pinColor, description, show };
+        //----------------------------------------------------
+        const options = [];
+        options[0]={
+            "lat":35.299273,
+            "lon":139.578627,
+            "title":"逗子駅",
+            "pinColor":"#ffd700",
+            "height":300,
+            "width":320,
+            "description": '花火大会は先月終了<br><img src="../img/zushi.jpg" width="300">',
+            "show":false
+        };
+        options[1]={
+            "lat": 35.318523,
+            "lon":139.550702,
+            "title":"鎌倉駅",
+            "pinColor":"#000080",
+            "height":300,
+            "width":320,
+            "description": 'あじさいキレイ<br><img src="../img/kama.jpg" width="300">',
+            "show":false
+        };
+        options[2]={
+            "lat":35.336936,
+            "lon":139.545423,
+            "title":"北鎌倉駅",
+            "pinColor":"#ff0000",
+            "height":300,
+            "width":320,
+            "description": '初夏は紫陽花、秋は紅葉<br><img src="../img/kitakama.jpg" width="300">',
+            "show":false
+        };
+        options[3]={
+            "lat":35.354383,
+            "lon":139.531641,
+            "title":"大船駅",
+            "pinColor":"#ffc0cb",
+            "height":300,
+            "width":320,
+            "description": '昔は松竹の撮影所がありました<br><img src="../img/ohfuna.jpg" width="300">',
+            "show":false
+        };
+        options[4]={
+            "lat": 35.402325,
+            "lon":139.532732,
+            "title":"戸塚駅",
+            "pinColor":"#000000",
+            "height":300,
+            "width":320,
+            "description": '市営地下鉄も<br><img src="../img/totuka.jpg" width="300">',
+            "show":false
+        };
+        options[5]={
+            "lat":35.433301,
+            "lon":139.563344,
+            "title":"東戸塚駅",
+            "pinColor":"#008000",
+            "height":300,
+            "width":320,
+            "description": '東戸塚<br><img src="../img/htotuka.jpg" width="300">',
+            "show":false
+        };
+        options[6]={
+            "lat":35.454768,
+            "lon":139.596951,
+            "title":"保土ヶ谷駅",
+            "pinColor":"#c0c0c0",
+            "height":300,
+            "width":320,
+            "description": '権太坂も<br><img src="../img/hodo.jpg" width="300">',
+            "show":false
+        };
+        options[7]={
+            "lat": 35.465628,
+            "lon":139.622306,
+            "title":"横浜駅",
+            "pinColor":"#ffd700",
+            "height":300,
+            "width":320,
+            "description": '崎陽軒<br><img src="../img/kiyo.jpg" width="300">',
+            "show":false
+        };
+        options[8]={
+            "lat":35.552831,
+            "lon":139.676283,
+            "title":"新川崎駅",
+            "pinColor":"#ff0000",
+            "height":300,
+            "width":320,
+            "description": '新川崎<br><img src="../img/shinkawa.jpg" width="300">',
+            "show":false
+        };
+        options[9]={
+            "lat":35.576569,
+            "lon":139.662905,
+            "title":"武蔵小杉駅",
+            "pinColor":"#ffd700",
+            "height":300,
+            "width":320,
+            "description": '25年前はタワマンなんてなかった<br><img src="../img/kosugi.jpg" width="300">',
+            "show":false
+        };
+        options[10]={
+            "lat": 35.600183,
+            "lon":139.721173,
+            "title":"西大井駅",
+            "pinColor":"#a52a2a",
+            "height":300,
+            "width":320,
+            "description": 'シブイ<br><img src="../img/nishi.jpg" width="300">',
+            "show":false
+        };
+        options[11]={
+            "lat": 35.629814,
+            "lon":139.739038,
+            "title":"品川駅",
+            "pinColor":"#800080",
+            "height":300,
+            "width":320,
+            "description": '京急の工事が進んでます<br><img src="../img/shina.jpg" width="300">',
+            "show":false
+        };
+        options[12]={
+            "lat": 35.666330,
+            "lon":139.758057,
+            "title":"新橋駅",
+            "pinColor":"#ff0000",
+            "height":300,
+            "width":320,
+            "description": '新橋<br><img src="../img/sbashi.jpg" width="300">',
+            "show":false
+        };
+        options[13]={
+            "lat":35.681298,
+            "lon":139.764052,
+            "title":"東京駅",
+            "pinColor":"#ffffff",
+            "height":300,
+            "width":320,
+            "description": 'TOKYO<br><img src="../img/tokyo.jpg" width="300">',
+            "show":false
+        };
+
+        //----------------------------------------------------
+        //4. Switch infoboxs
+        //   infoboxLayers(options, true); //true=one, false=Multiple
+        //----------------------------------------------------
+        map.infoboxLayers(options,true);
+
+    }
+    
+
+  </script>
+</body>
+
+</html>
